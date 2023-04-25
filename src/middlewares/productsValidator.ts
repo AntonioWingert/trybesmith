@@ -8,8 +8,6 @@ const productsValidator = async (
 ) => {
   const { error } = productsSchema.validate(req.body);
 
-  console.log(error);
-
   if (error?.details[0].type === 'any.required') {
     return res.status(400).json({ message: error.message });
   }
